@@ -118,7 +118,7 @@ menu:
   home: / || home
   archives: /archives/ || archive
   categories: /categories/ || th
-  tags: /tags/ || tags
+#  tags: /tags/ || tags
   books: /books/ || book
   about: /about/ || user
 #  schedule: /schedule/ || calendar
