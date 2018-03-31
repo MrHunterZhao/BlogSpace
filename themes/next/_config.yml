@@ -76,13 +76,13 @@ footer:
   copyright:
   # -------------------------------------------------------------
   # Hexo link (Powered by Hexo).
-  powered: true
+  powered: false
 
   theme:
     # Theme & scheme info link (Theme - NexT.scheme).
-    enable: true
+    enable: false
     # Version info of NexT after scheme info (vX.X.X).
-    version: true
+    version: false
   # -------------------------------------------------------------
   # Any custom text can be defined here.
   #custom_text: Hosted by <a target="_blank" rel="external nofollow" href="https://pages.coding.me"><b>Coding Pages</b></a>
@@ -117,9 +117,10 @@ index_with_subtitle: true
 menu:
   home: / || home
   archives: /archives/ || archive
-  categories: /categories/ || th
+#  categories: /categories/ || th
 #  tags: /tags/ || tags
   books: /books/ || book
+  works: /works/ || coffee
   about: /about/ || user
 #  schedule: /schedule/ || calendar
 #  sitemap: /sitemap.xml || sitemap
@@ -193,7 +194,7 @@ links:
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif
 # in site  directory(source/uploads): /uploads/avatar.gif
-avatar: /images/avatar.png
+avatar: /images/avatar.jpeg
 
 # Table Of Contents in the Sidebar
 toc:
@@ -307,8 +308,8 @@ related_posts:
 
 # Declare license on posts
 post_copyright:
-  enable: false
-  license: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a>
+  enable: true
+  license: <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-ND 4.0</a>
 
 
 # ---------------------------------------------------------------
@@ -454,7 +455,7 @@ pangu: false
 #swiftype_key:
 
 # Baidu Analytics ID
-#baidu_analytics:
+baidu_analytics: b60a415c8619530aaa6ce5eafe2d5f94
 
 # Disqus
 disqus:
@@ -618,14 +619,14 @@ rating:
 # Show number of visitors to each article.
 # You can visit https://leancloud.cn get AppID and AppKey.
 leancloud_visitors:
-  enable: false
-  app_id: #<app_id>
-  app_key: #<app_key>
+  enable: true
+  app_id: 8GozMAWyU4NKsaed00GMczWK-gzGzoHsz
+  app_key: mHTxYmADqYmozV5Hf3DnH5kv
   # Dependencies: https://github.com/theme-next/hexo-leancloud-counter-security
   # If you don't care about security in lc counter and just want to use it directly
   # (without hexo-leancloud-counter-security plugin), set the `security` to `false`.
-  security: true
-  betterPerformance: false
+  security: false
+  betterPerformance: true
 
 # Another tool to show number of visitors to each article.
 # visit https://console.firebase.google.com/u/0/ to get apiKey and projectId
