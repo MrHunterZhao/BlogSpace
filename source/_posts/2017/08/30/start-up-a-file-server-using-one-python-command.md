@@ -1,6 +1,6 @@
 ---
 title: 使用一个Python命令开启简单的静态文件服务器
-date: 2016-01-12 14:35:00
+date: 2017-08-30 14:35:00
 categories: Python
 tags:
     - Python
