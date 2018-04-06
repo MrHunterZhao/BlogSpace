@@ -8,4 +8,4 @@ comments: false
 
 
 
-![我的微信](/images/Wechat.jpeg)
+![我的微信](/images/Wechat.jpg)
