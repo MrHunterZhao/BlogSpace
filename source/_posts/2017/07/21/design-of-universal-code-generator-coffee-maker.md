@@ -95,6 +95,3 @@ Configuration configuration = new Configuration();
 
 # 扩展
 如果需要定制化CoffeeMaker，可以通过修改（新增）`FileWrapper`和`FileTemplate`来轻松实现。
-
-
--EOF-
