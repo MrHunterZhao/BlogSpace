@@ -45,6 +45,6 @@ tags:
 
 点击DEBUG按钮，不出意外会发现进入如下界面，congrats！
 
-接下来，泡杯咖啡，Step by step慢慢DEBUG吧，后面的文章将陆续介绍JVM创建及初始化流程。
-
 ![openjdk](/images/post/2018/04/30/debug-openjdk10-with-clion-ide.jpg)
+
+接下来，泡杯咖啡，Step by step慢慢DEBUG吧，后面的文章将陆续介绍JVM创建及初始化流程。
