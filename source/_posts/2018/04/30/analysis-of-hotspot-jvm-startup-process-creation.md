@@ -10,7 +10,7 @@ tags:
 
 ![openjdk](/images/post/2018/01/29/openjdk.jpg)
 
-在之前的文章中已经介绍了如何在Mac上[编译](/post/2018/01/29/compile-openjdk10-source-code-on-mac.html)及[调试](/post/2018/01/30/debug-openjdk10-source-code-on-mac-with-clion-ide.html)OpenJDK10源码，对OpenJDK也有了一定了解，
+在之前的文章中已经介绍了如何在Mac上[编译](/post/2018/01/29/compile-openjdk10-source-code-on-mac.html)及[调试](/post/2018/01/30/debug-openjdk10-source-code-on-mac-with-clion-ide.html)OpenJDK10源码，
 
 那么，一个Java实例从开始运行至结束经历了什么？本文将从JVM源码角度一探究竟，深入剖析HotSpot其创建流程。
 
@@ -438,7 +438,7 @@ JavaMain(void * _args)
 }
 ```
 
-原来`JavaMain()`是Java主程序的native调用。
+可见`JavaMain()`是Java主程序的native调用。
 在该方法里会执行虚拟机的初始化，获取Java程序主类及main方法，然后通过JNI调用main方法，
 自此，整个JVM进程执行结束，最终退出。
 
