@@ -112,7 +112,7 @@ WARNING: Using incubator modules: jdk.incubator.httpclient
 Stopping sjavac server
 Finished building target 'images' in configuration 'macosx-x86_64-normal-server-slowdebug'
 ```
-
+大约10分钟后编译完成，由于机器配置不同可能会导致编译时长有所差异。
 
 # 测试
 
