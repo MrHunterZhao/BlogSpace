@@ -32,11 +32,7 @@ $ brew install freetype ccache
 ```
 $ hg clone http://hg.openjdk.java.net/jdk10/master openjdk10
 ```
-此处需要耐心等待一段时间，必要情况下需要多尝试几次才能拉去成功。
-为了方便我把源码上传到了GitHub上一份，所以也可以直接克隆
-```
-$ git clone https://github.com/MrHunterZhao/OpenJDK10.git
-```
+此处需要耐心等待一段时间，必要情况下需要多尝试几次才能拉取成功。
 
 
 
