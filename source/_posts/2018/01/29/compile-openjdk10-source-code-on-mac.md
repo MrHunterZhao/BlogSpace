@@ -1,13 +1,14 @@
 ---
 title: 【JVM源码探秘】在Mac上编译OpenJDK10源码
-date: 2018-04-29 01:03:13
+date: 2018-01-29 01:03:13
 categories: OpenJDK
 tags:
     - OpenJDK
     - JVM
+    - HotSpot
 ---
 
-![openjdk](/images/post/2018/04/29/openjdk-logo.jpg)
+![openjdk](/images/post/2018/01/29/openjdk-logo.jpg)
 
 以前尝试编译过OpenJDK7、8和9，由于源代码中存在诸多BUG，导致各种编译问题，解决来解决去，还是很难编译通过，很是不爽。
 

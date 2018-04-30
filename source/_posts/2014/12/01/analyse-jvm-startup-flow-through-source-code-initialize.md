@@ -1,5 +1,5 @@
 ---
-title: 【Hotspot源码分析】从Hotpost源码角度深入分析Java程序启动过程-初始化  
+title: 【Hotspot源码分析】从HotSpot源码角度深入分析Java程序启动过程-初始化  
 date: 2014-12-01 04:20:08
 categories: OpenJDK
 tags:
