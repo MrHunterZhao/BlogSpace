@@ -16,6 +16,6 @@ graph {
 [ Remote Server ] -- (C) Callback --> [ MQ ]{rows:8;}
 
 
-[ MQ ] -- (D) Broadcast to all nodes --> [ Server Node A ]
+[ MQ ] == (D) Broadcast to all nodes ==> [ Server Node A ]
 
 [ Server Node A ] .. (E) Notify ..> [ Client ]
