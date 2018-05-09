@@ -10,7 +10,7 @@ tags:
 
 ![openjdk](/images/post/2018/01/29/openjdk.jpg)
 
-前面文章已经介绍了如何[在Mac上编译OpenJDK10源码](/post/2018/01/29/compile-openjdk10-source-code-on-mac.html)，拥有了自己的JDK版本，
+前面文章已经介绍了如何[在Mac上编译OpenJDK10源码](/post/2018/01/29/compile-openjdk10-source-code-on-mac/)，拥有了自己的JDK版本，
 
 为了深入了解Java实例的创建、初始化和执行流程以及内部实现原理，DEBUG是必不可少的必杀技。
 

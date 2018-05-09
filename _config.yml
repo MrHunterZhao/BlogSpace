@@ -16,7 +16,7 @@ url: http://hunterzhao.io
 enforce_ssl: https://hunterzhao.io
 root: /
 #permalink: :year/:month/:day/:title/
-permalink: post/:year/:month/:day/:title.html
+permalink: post/:year/:month/:day/:title/
 permalink_defaults:
 
 # Directory
