@@ -1,0 +1,21 @@
+graph {
+  label: < Async Callback Model in Cluster Architecture >;
+}
+
+[ Client ]{rows:12;} -- (A) Connect --> [ Server Node A ]
+
+[ Client ] --> { style: invisible; }[ Server Node B ]
+[ Client ] --> { style: invisible; }[ Server Node C ]
+
+
+(Cluster: [ Server Node A ], [ Server Node B ], [ Server Node C ])
+
+
+[ Server Node A ] -- (B) Async call --> [ Remote Server ]{rows:8;}
+
+[ Remote Server ] -- (C) Callback --> [ MQ ]{rows:8;}
+
+
+[ MQ ] -- (D) Broadcast to all nodes --> [ Server Node A ]
+
+[ Server Node A ] .. (E) Notify ..> [ Client ]
