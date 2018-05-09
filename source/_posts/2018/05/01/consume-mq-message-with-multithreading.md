@@ -141,4 +141,53 @@ JDK线程池有四种拒绝策略`AbortPolicy`、`CallerRunsPolicy`、 `DiscardO
 
 ```
 
+或者使用更为简洁的`Executors`框架，上面的代码会变成：
+
+```java
+
+    /* Worker任务线程池 */
+    private Executor taskPool = Executors.newFixedThreadPool(10);
+
+    /* 初始化与Worker线程数量相同的令牌 */
+    private Semaphore permits = new Semaphore(10);
+    
+    
+    private void exec() throws InterruptedException {
+
+        for (int i = 0; i < 100; i++) {
+            // 获取令牌，如果获取不到则block，直到有worker线程归还
+            permits.acquire();
+            taskPool.execute(new WorkerThread(permits));
+        }
+
+    }
+
+    /**
+     * 任务线程
+     */
+    private class WorkerThread implements Runnable {
+
+        private Semaphore permits;
+
+        public WorkerThread(Semaphore permits) {
+            this.permits = permits;
+        }
+
+        public void run() {
+            try {
+                // do sth
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            finally {
+                if (permits != null) {
+                    // 释放令牌
+                    permits.release();
+                }
+            }
+        }
+    }
+```
+
+
 
