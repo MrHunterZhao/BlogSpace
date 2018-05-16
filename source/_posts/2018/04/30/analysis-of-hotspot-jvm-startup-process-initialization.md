@@ -446,11 +446,11 @@ jint init_globals() {
 
   return JNI_OK;
 }
-``` 
+```
 
 # universe.cpp # universe_init()
-
 `universe_init()`方法初始化堆以及决定所使用GC策略，位于`src/hotspot/share/memory/universe.cpp`
+
 ```c
 jint universe_init() {
   assert(!Universe::_fully_initialized, "called after initialize_vtables");
