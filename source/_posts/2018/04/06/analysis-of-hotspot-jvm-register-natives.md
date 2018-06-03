@@ -17,7 +17,7 @@ tags:
 - java.lang.Object
 - java.lang.Class
 
-等类中均有一个静态块用来执行一个叫做`registerNatives()`的native方法，这个native方法里究竟都做了啥？我们进去瞧瞧。
+等类中均有一个静态块用来执行一个叫做`registerNatives()`的native方法，
 
 
 ```java
@@ -26,7 +26,7 @@ tags:
         registerNatives();
     }
 ```
-
+这个native方法里究竟都做了啥？我们进去瞧瞧。
 
 <!-- more -->
 
