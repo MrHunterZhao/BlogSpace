@@ -91,14 +91,14 @@ JVM_END
 ```
 
 通过Universe调用具体堆实现的collect方法，取决于使用当前实例使用的GC模式，在JVM中目前堆实现主要有：
-- 串行回收堆
+- 串行回收堆实现
     - src/hotspot/share/gc/serial/defNewGeneration.cpp（年轻代）
     - src/hotspot/share/gc/serial/tenuredGeneration.cpp（年老代）
-- 并行回收堆
+- 并行回收堆实现
     - src/hotspot/share/gc/parallel/parallelScavengeHeap.cpp
-- CMS并发回收堆
+- CMS并发回收堆实现
     - src/hotspot/share/gc/shared/genCollectedHeap.cpp
-- G1并发回收堆
+- G1并发回收堆实现
     - src/hotspot/share/gc/g1/g1CollectedHeap.cpp
 
 
