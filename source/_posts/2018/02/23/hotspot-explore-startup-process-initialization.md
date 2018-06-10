@@ -10,7 +10,7 @@ tags:
 
 ![openjdk](/images/post/2018/01/29/openjdk.jpg)
 
-接[上篇](/post/2018/02/23/analysis-of-hotspot-jvm-startup-process-creation/)，HotSpot在启动流程完成了参数的解析、JNI入口的定位、环境变量的设置等一系列操作，
+接[上篇](/post/2018/02/23/hotspot-explore-startup-process-creation/)，HotSpot在启动流程完成了参数的解析、JNI入口的定位、环境变量的设置等一系列操作，
 
 最终在`JavaMain()`中调用了`InitializeJVM()`方法，用于完成虚拟机所需的内存申请、挂载和初始化，本文我们就一起一探究竟。
 
