@@ -417,5 +417,5 @@ InstanceKlass* SystemDictionary::load_instance_class(Symbol* class_name, Handle 
 
 
 至此，JVM便完成了类型的InstanceKlass实例创建，这里两种加载方式中不管是通过bootstrap loader还是app(or自定义) loader均是
-殊途同归，都会经历class文件的`装载`、`验证`、`准备`、`解析`、`初始化`等操作。具体流程在[下一篇](/post/2018/05/17/hotspot-explore-loading-linking-and-Initializing/)文章中详细介绍。
+殊途同归，都会经历class文件的`装载`、`验证`、`准备`、`解析`、`初始化`等操作。具体流程在[下一篇](/post/2018/05/17/hotspot-explore-class-loading-linking-and-initializing/)文章中详细介绍。
 
