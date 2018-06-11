@@ -1,0 +1,1 @@
+[className] -- loadClass() --> [JavaValue] -- get_jobject() --> [oop]{flow:south} -- as_Klass() --> [Klass]{flow:west} -- cast() --> [InstanceKlass]
