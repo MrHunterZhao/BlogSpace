@@ -108,7 +108,9 @@ JVM_ENTRY(void, JVM_StartThread(JNIEnv* env, jobject jthread))
       NOT_LP64(if (size > SIZE_MAX) size = SIZE_MAX;)
       size_t sz = size > 0 ? (size_t) size : 0;
 
+      // ===============================================================
       // 创建C++级别的本地线程，&thread_entry为线程run方法执行入口
+      // ===============================================================
       native_thread = new JavaThread(&thread_entry, sz);
 
       // 检查该本地线程中是否包含OSThread，因为可能出现由于内存不足导致OSThread未创建成功的情况
@@ -241,11 +243,13 @@ static void *thread_native_entry(Thread *thread) {
     osthread->set_state(INITIALIZED);
     sync->notify_all();
 
-    // wait until os::start_thread()
+    // 等待调用os::start_thread()，然后继续执行
     while (osthread->get_state() == INITIALIZED) {
       sync->wait(Mutex::_no_safepoint_check_flag);
     }
   }
+
+  
 
   // =======================================================
   // 调用JavaThread的run方法以便触发执行java.lang.Thread.run()
@@ -255,6 +259,55 @@ static void *thread_native_entry(Thread *thread) {
   return 0;
 }
 ```
+
+# thread.cpp # Thread::start()
+初始化工作完成之后当前线程wait，等待调用`Thread::start(native_thread);`
+```c
+void Thread::start(Thread* thread) {
+
+  if (!DisableStartThread) {
+    if (thread->is_Java_thread()) {
+
+      // 设置线程状态为RUNNABLE
+      java_lang_Thread::set_thread_status(((JavaThread*)thread)->threadObj(),
+                                          java_lang_Thread::RUNNABLE);
+    }
+    // 启动本地线程
+    os::start_thread(thread);
+  }
+}
+```
+
+# os.cpp # os::start_thread()
+将java.lang.Thread对象设为RUNNABLE后启动本地线程，位于src/hotspot/share/runtime/os.cpp
+
+```c
+void os::start_thread(Thread* thread) {
+  // guard suspend/resume
+  MutexLockerEx ml(thread->SR_lock(), Mutex::_no_safepoint_check_flag);
+  OSThread* osthread = thread->osthread();
+  // osthread状态设为运行中
+  osthread->set_state(RUNNABLE);
+  // 最终启动线程
+  pd_start_thread(thread);
+}
+```
+
+
+# os_linux.cpp # os::pd_start_thread()
+最终启动线程，位于src/hotspot/os/linux/os_linux.cpp，通知子线程JavaThread继续往下执行
+
+```c
+void os::pd_start_thread(Thread* thread) {
+  OSThread * osthread = thread->osthread();
+  assert(osthread->get_state() != INITIALIZED, "just checking");
+  Monitor* sync_with_child = osthread->startThread_lock();
+  MutexLockerEx ml(sync_with_child, Mutex::_no_safepoint_check_flag);
+  // 通知子线程继续往下执行
+  sync_with_child->notify();
+}
+```
+
 
 # thread.cpp # JavaThread::run()
 
@@ -332,3 +385,4 @@ static void thread_entry(JavaThread* thread, TRAPS) {
                           THREAD);
 }
 ```
+
